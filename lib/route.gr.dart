@@ -15,6 +15,28 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    GameDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<GameDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: GameDetailScreen(
+          key: args.key,
+          gameId: args.gameId,
+        ),
+      );
+    },
+    GameFormRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GameFormScreen(),
+      );
+    },
+    GameListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GameListScreen(),
+      );
+    },
     HomeRouteRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -32,6 +54,72 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [GameDetailScreen]
+class GameDetailRoute extends PageRouteInfo<GameDetailRouteArgs> {
+  GameDetailRoute({
+    Key? key,
+    required String gameId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          GameDetailRoute.name,
+          args: GameDetailRouteArgs(
+            key: key,
+            gameId: gameId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'GameDetailRoute';
+
+  static const PageInfo<GameDetailRouteArgs> page =
+      PageInfo<GameDetailRouteArgs>(name);
+}
+
+class GameDetailRouteArgs {
+  const GameDetailRouteArgs({
+    this.key,
+    required this.gameId,
+  });
+
+  final Key? key;
+
+  final String gameId;
+
+  @override
+  String toString() {
+    return 'GameDetailRouteArgs{key: $key, gameId: $gameId}';
+  }
+}
+
+/// generated route for
+/// [GameFormScreen]
+class GameFormRoute extends PageRouteInfo<void> {
+  const GameFormRoute({List<PageRouteInfo>? children})
+      : super(
+          GameFormRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GameFormRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GameListScreen]
+class GameListRoute extends PageRouteInfo<void> {
+  const GameListRoute({List<PageRouteInfo>? children})
+      : super(
+          GameListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GameListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

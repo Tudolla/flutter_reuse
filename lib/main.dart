@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:request_response_flutter/route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final _appRouter = AppRouter();
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: _appRouter.config(),
       title: 'Flutter Demo',
       theme: ThemeData(
